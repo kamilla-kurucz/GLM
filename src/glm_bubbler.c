@@ -323,7 +323,7 @@ void read_bubbler(int jday)
     //# keep their namelist values (set in init_bubbler).  Without this guard the
     //# read hits the zero-initialised bubl handle (== met file) and clobbers the
     //# namelist aFlow with an unrelated met column every day.
-    if ( bubbler_data_file != NULL && bubOn && jday >= iDayStart && jday <= iDayFinish) {
+    if ( bubbler_data_file != NULL && jday >= iDayStart && jday <= iDayFinish) {
         read_bubble_data(jday, &aFlow, &nPorts, &bDepth, &bubLen);
         if (aFlow <= 0.0) bubOn = FALSE;
     }
